@@ -42,14 +42,12 @@ router.get('/', (req, res) => {
     res.json(resultado.map(addHATEOASLinks));
 });
 
-// Ruta GET /joyas/categoria/:categoria
 router.get('/categoria/:categoria', (req, res) => {
     const categoria = req.params.categoria;
     const joyasCategoria = joyas.filter(joya => joya.category === categoria);
     res.json(joyasCategoria.map(addHATEOASLinks));
 });
 
-// Ruta GET /joyas/:id
 router.get('/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const joya = joyas.find(j => j.id === id);
